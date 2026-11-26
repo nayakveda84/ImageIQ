@@ -1,66 +1,70 @@
 # ImageIQ | Digital Image Processing Laboratory
 
-A hands-on laboratory to enhance, analyze and understand digital images through interactive experiments.
+**Explore. Process. Analyze. Recognize.**
 
-## About the Project
+[![Live Website](https://img.shields.io/badge/Live%20Website-Visit%20ImageIQ-purple?style=for-the-badge)](https://nayakveda84.github.io/ImageIQ/)
+[![GitHub Repository](https://img.shields.io/badge/GitHub-Repository-black?style=for-the-badge&logo=github)](https://github.com/nayakveda84/ImageIQ)
 
-**ImageIQ** is a web-based Digital Image Processing laboratory designed to demonstrate fundamental image processing techniques through interactive experiments.
+## 🌐 Live Demo
 
-The platform combines a user-friendly frontend with a Python Flask backend to perform image processing operations and visualize their results.
+**Explore ImageIQ here:**
 
-## Experiments
+https://nayakveda84.github.io/ImageIQ/
 
-### 01. Image Enhancement
-- Contrast stretching
-- Spatial smoothing
-- Image enhancement techniques
+## 📌 About the Project
 
-### 02. Object Analysis
+ImageIQ is a web-based Digital Image Processing (DIP) laboratory developed to demonstrate image processing techniques through interactive experiments.
+
+It provides a user-friendly interface where users can upload images, apply processing techniques, visualize results and explore fundamental concepts of digital image processing.
+
+The project integrates frontend technologies with a Python Flask backend, along with computer vision and machine learning libraries.
+
+## 🧪 Experiments
+
+### Experiment 1 – Image Enhancement
+- Image preprocessing
+- Contrast enhancement
+- Spatial filtering
+
+### Experiment 2 – Image Processing and Segmentation
 - Image preprocessing
 - Image segmentation
-- Feature extraction
+- Object analysis
 
-### 03. Shape Recognition
-- Shape feature analysis
+### Experiment 3 – Shape Analysis
+- Boundary representation
 - Regional descriptors
-- Image moments
+- Shape feature analysis
 
-### 04. Image Processing
-- Handwritten digit recognition
+### Experiment 4 – Handwritten Digit Recognition
 - Image preprocessing
-- HOG feature extraction
+- Histogram of Oriented Gradients (HOG)
 - K-Nearest Neighbors (KNN) classification
+- Digit prediction
 
-## Tech Stack
+## 🛠️ Technologies Used
 
-**Frontend**
-- HTML5
-- CSS3
-- JavaScript
+| Category | Technologies |
+|---|---|
+| Frontend | HTML5, CSS3, JavaScript |
+| Backend | Python, Flask, Flask-CORS |
+| Image Processing | OpenCV, NumPy |
+| Machine Learning | Scikit-learn |
+| Feature Extraction | Scikit-image |
+| Visualization | Matplotlib |
+| Image Handling | Pillow |
+| Deployment | GitHub Pages |
 
-**Backend**
-- Python
-- Flask
-- Flask-CORS
-
-**Image Processing & Machine Learning**
-- OpenCV
-- NumPy
-- Scikit-learn
-- Scikit-image
-- Matplotlib
-- Pillow
-
-## Project Structure
+## 📂 Project Structure
 
 ```text
 ImageIQ/
 │
 ├── frontend/
 │   ├── index.html
-│   ├── css/
-│   ├── js/
-│   └── ...
+│   ├── CSS/
+│   ├── JS/
+│   └── assets/
 │
 ├── backend/
 │   └── app.py
@@ -70,7 +74,7 @@ ImageIQ/
 └── README.md
 ```
 
-## Installation and Setup
+## ⚙️ Installation and Setup
 
 ### 1. Clone the repository
 
@@ -78,7 +82,7 @@ ImageIQ/
 git clone https://github.com/nayakveda84/ImageIQ.git
 ```
 
-### 2. Navigate to the project folder
+### 2. Navigate to the project directory
 
 ```bash
 cd ImageIQ
@@ -104,13 +108,13 @@ venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### 6. Start the Flask backend
+### 6. Run the Flask backend
 
 ```bash
 python backend/app.py
 ```
 
-The backend runs locally at:
+Backend URL:
 
 `http://127.0.0.1:5000`
 
@@ -118,29 +122,40 @@ The backend runs locally at:
 
 Open `frontend/index.html` using VS Code Live Server.
 
-Make sure the Flask backend is running when using features that require image processing.
+Ensure the Flask backend is running for experiments that require image processing.
 
-## Features
+## ✨ Key Features
 
-- Four interactive DIP experiments
-- Image upload and processing
-- Visual representation of processing results
-- Handwritten digit recognition
-- Frontend and backend integration
-- Responsive web interface
+- Four interactive Digital Image Processing experiments.
+- Image upload and preview.
+- Image processing and visualization.
+- Image segmentation and shape analysis.
+- Handwritten digit recognition.
+- Frontend and backend integration.
+- Interactive and user-friendly interface.
 
-## Deployment
+## 🚀 Deployment
 
-The frontend is deployed using **GitHub Pages**.
+The ImageIQ frontend is hosted using **GitHub Pages**.
 
-The Flask backend requires separate Python-compatible hosting for live image-processing functionality.
+**Live URL:** https://nayakveda84.github.io/ImageIQ/
 
-## Repository
+The Flask backend requires separate Python-compatible hosting for online image processing.
 
-[GitHub – ImageIQ](https://github.com/nayakveda84/ImageIQ)
+## 👩‍💻 Developer
+
+**Veda Vasant Nayak**
+
+- GitHub: [@nayakveda84](https://github.com/nayakveda84)
+- LinkedIn: [Veda Nayak](https://linkedin.com/in/veda-nayak-715448259)
+
+## 📜 License
+
+This project is developed for academic and educational purposes as part of the Digital Image Processing laboratory.
 
 ---
 
-**ImageIQ | Digital Image Processing Laboratory**
-
-*Explore. Process. Analyze. Recognize.*
+<p align="center">
+  <b>ImageIQ – Digital Image Processing Laboratory</b><br>
+  Explore. Process. Analyze. Recognize.
+</p>
