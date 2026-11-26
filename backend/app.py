@@ -12,7 +12,11 @@ from skimage.feature import hog
 import io
 print("IMAGEIQ BACKEND FILE LOADED")
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={
+    r"/*": {
+        "origins": ["https://nayakveda84.github.io"]
+    }
+})
 # ================= EXPERIMENT 4: DIGIT RECOGNITION =================
 
 # Load handwritten digit dataset (0-9)
