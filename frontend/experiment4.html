@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ImageIQ | Digit Recognition</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+    <h2>ImageIQ</h2>
+    <a href="index.html">← Back to Dashboard</a>
+</header>
+
+<main class="container digit-page">
+
+    <section class="digit-heading">
+        <h1>Handwritten Digit Recognition</h1>
+        <p>
+            Recognize handwritten digits using boundary representation,
+            regional descriptors, shape features and moments.
+        </p>
+    </section>
+
+    <!-- Image Selection -->
+
+    <section class="experiment-section">
+        <h2>01. Select Input Image</h2>
+
+        <label for="digitInput">Upload your handwritten digit</label>
+        <input type="file" id="digitInput" accept="image/*">
+
+        <h3>Or choose a sample image</h3>
+
+        <div class="digit-sample-gallery">
+
+            <div class="digit-sample-card"
+                 onclick="selectDigitSample('assets/digits/digit1.png')">
+                <img src="assets/digits/digit1.png" alt="Handwritten sample one">
+                <p>Sample 1</p>
+            </div>
+
+            <div class="digit-sample-card"
+                 onclick="selectDigitSample('assets/digits/test_digit.png')">
+                <img src="assets/digits/test_digit.png" alt="Handwritten sample two">
+                <p>Sample 2</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Image Preview -->
+
+    <section class="experiment-section">
+        <h2>02. Original Image</h2>
+
+        <div class="digit-original-preview">
+            <img id="digitOriginal" alt="Selected handwritten digit"
+                 style="display:none;">
+            <p id="digitPlaceholder">Select or upload an image to preview.</p>
+        </div>
+
+        <button type="button" onclick="processDigit()">
+            Extract Features & Recognize
+        </button>
+
+        <button type="button" onclick="resetDigit()">
+            Reset
+        </button>
+    </section>
+
+    <!-- Processing Results -->
+
+    <section class="experiment-section">
+        <h2>03. Image Processing Results</h2>
+
+        <div class="digit-result-grid">
+
+            <div class="result-image-card">
+                <h3>Preprocessed Image</h3>
+                <img id="digitPreprocessed" alt="Preprocessed image">
+            </div>
+
+            <div class="result-image-card">
+                <h3>Boundary Representation</h3>
+                <img id="digitBoundary" alt="Boundary representation">
+            </div>
+
+            <div class="result-image-card">
+                <h3>Regional Features</h3>
+                <img id="digitRegions" alt="Regional features">
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Recognition -->
+
+    <section class="experiment-section">
+        <h2>04. Recognition Results</h2>
+
+        <div class="digit-prediction">
+            <p>Predicted Digit</p>
+            <h1 id="predictedDigit">--</h1>
+        </div>
+
+        <p id="recognitionText">
+            Waiting for image processing...
+        </p>
+
+        <h3>Descriptor Comparison</h3>
+        <div id="descriptorResults"></div>
+
+        <h3>Classification Evaluation</h3>
+        <div id="evaluationResults"></div>
+
+    </section>
+
+</main>
+
+<script src="js/experiment4.js"></script>
+
+</body>
+</html>

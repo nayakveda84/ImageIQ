@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ImageIQ | Watershed Segmentation</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+    <div class="logo">ImageIQ<span>.</span></div>
+    <a href="index.html">← Back to Dashboard</a>
+</header>
+
+<main class="experiment-container">
+
+    <section class="experiment-heading">
+        <p class="eyebrow">EXPERIMENT 03 · IMAGE SEGMENTATION</p>
+        <h1>Marker-Controlled Watershed</h1>
+        <p>
+            Segment and count individual fruits in images containing
+            clusters of touching fruits using watershed segmentation.
+        </p>
+    </section>
+
+    <!-- Upload Section -->
+    <section class="upload-section">
+        <h2>01. Select Fruit Image</h2>
+        <p>Upload an image or choose one of the sample images below.</p>
+
+        <input type="file" id="imageInput" accept="image/*">
+
+        <div class="sample-gallery">
+            <h3>Sample Fruit Images</h3>
+
+            <div class="sample-images">
+
+                <div class="sample-card"
+                     onclick="selectWatershedSample('assets/watershed/img04.jpg')">
+                    <img src="assets/watershed/img04.jpg" alt="Fruit sample 1">
+                    <p>Fruit Cluster 01</p>
+                </div>
+
+                <div class="sample-card"
+                     onclick="selectWatershedSample('assets/watershed/img05.jpg')">
+                    <img src="assets/watershed/img05.jpg" alt="Fruit sample 2">
+                    <p>Fruit Cluster 02</p>
+                </div>
+
+                <div class="sample-card"
+                     onclick="selectWatershedSample('assets/watershed/img06.jpg')">
+                    <img src="assets/watershed/img06.jpg" alt="Fruit sample 3">
+                    <p>Fruit Cluster 03</p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="preview-box">
+            <p id="previewMessage">Selected fruit image will appear here.</p>
+            <img id="originalImage" alt="Original fruit image">
+        </div>
+    </section>
+
+    <!-- Parameters -->
+    <section class="processing-section">
+        <h2>02. Segmentation Parameters</h2>
+        <p>Adjust the parameters to control fruit separation.</p>
+
+        <div class="control-group">
+            <label for="foregroundThreshold">
+                Foreground Threshold:
+                <span id="foregroundDisplay">0.40</span>
+            </label>
+            <input type="range" id="foregroundThreshold"
+                   min="0.10" max="0.90" step="0.05" value="0.40">
+        </div>
+
+        <div class="control-group">
+            <label for="backgroundSize">Background Dilation Size</label>
+            <select id="backgroundSize">
+                <option value="3">3 × 3</option>
+                <option value="5" selected>5 × 5</option>
+                <option value="7">7 × 7</option>
+                <option value="9">9 × 9</option>
+            </select>
+        </div>
+
+        <div class="control-group">
+            <label for="distanceThreshold">
+                Distance Transform Threshold:
+                <span id="distanceDisplay">0.40</span>
+            </label>
+            <input type="range" id="distanceThreshold"
+                   min="0.10" max="0.90" step="0.05" value="0.40">
+        </div>
+
+        <button type="button" onclick="processWatershed()">
+            Run Watershed Segmentation →
+        </button>
+    </section>
+
+    <!-- Results -->
+    <section class="result-section">
+        <h2>03. Segmentation Results</h2>
+
+        <div class="result-grid">
+
+            <div class="result-image-card">
+                <h3>Original Image</h3>
+                <div class="preview-box">
+                    <p id="originalResultMessage">Waiting for image...</p>
+                    <img id="originalResult" alt="Original">
+                </div>
+            </div>
+
+            <div class="result-image-card">
+                <h3>Preprocessed Image</h3>
+                <div class="preview-box">
+                    <p id="preprocessedMessage">Waiting for processing...</p>
+                    <img id="preprocessedImage" alt="Preprocessed">
+                </div>
+            </div>
+
+            <div class="result-image-card">
+                <h3>Distance Transform</h3>
+                <div class="preview-box">
+                    <p id="distanceMessage">Waiting for processing...</p>
+                    <img id="distanceImage" alt="Distance transform">
+                </div>
+            </div>
+
+            <div class="result-image-card">
+                <h3>Marker Image</h3>
+                <div class="preview-box">
+                    <p id="markerMessage">Waiting for processing...</p>
+                    <img id="markerImage" alt="Markers">
+                </div>
+            </div>
+
+            <div class="result-image-card">
+                <h3>Final Watershed Output</h3>
+                <div class="preview-box">
+                    <p id="segmentedMessage">Waiting for processing...</p>
+                    <img id="segmentedImage" alt="Segmented fruits">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Statistics -->
+    <section class="metrics-section">
+        <h2>04. Segmentation Analysis</h2>
+
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <h3>Fruit Count</h3>
+                <p id="fruitCount">-</p>
+            </div>
+
+            <div class="metric-card">
+                <h3>Foreground Pixels</h3>
+                <p id="foregroundPixels">-</p>
+            </div>
+
+            <div class="metric-card">
+                <h3>Segmented Regions</h3>
+                <p id="regionCount">-</p>
+            </div>
+        </div>
+
+        <div class="analysis-card">
+            <h3>Algorithm Analysis</h3>
+            <p id="analysisText">
+                Upload an image and run watershed segmentation
+                to view the analysis.
+            </p>
+        </div>
+
+        <button class="reset-button" onclick="resetWatershed()">
+            Reset Experiment
+        </button>
+    </section>
+
+</main>
+
+<script src="js/experiment3.js"></script>
+
+</body>
+</html>

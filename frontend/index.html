@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ImageIQ | Digital Image Processing Lab</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<script>
+    fetch("http://127.0.0.1:5000/")
+        .then(response => response.json())
+        .then(data => {
+            console.log("Backend connected:", data);
+        })
+        .catch(error => {
+            console.error("Backend connection failed:", error);
+        });
+</script>
+<body>
+
+    <header class="navbar">
+        <div class="logo">Image<span>IQ.</span></div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#experiments">Experiments</a>
+            <a href="#about">About</a>
+        </nav><a href="#">Open Experiment ↗</a>
+        <div class="lab-tag">DIP LABORATORY</div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <p class="eyebrow">DIGITAL IMAGE PROCESSING · 2026</p>
+                <h1>Explore the world<br>through <span>pixels.</span></h1>
+                <p class="description">
+                    A hands-on laboratory to enhance, analyze and understand
+                    digital images through interactive experiments.
+                </p>
+                <a href="#experiments" class="primary-btn">
+                    Explore Experiments ↗
+                </a>
+            </div>
+
+            <div class="hero-art">
+                <div class="pixel-box">
+                    <div class="pixel-grid">
+                        <span></span><span></span><span></span><span></span>
+                        <span></span><span></span><span></span><span></span>
+                        <span></span><span></span><span></span><span></span>
+                        <span></span><span></span><span></span><span></span>
+                    </div>
+                    <p>IMAGE / 001</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="experiments" id="experiments">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">THE LABORATORY</p>
+                    <h2>Our Experiments</h2>
+                </div>
+                <p>01 — 04</p>
+            </div>
+
+            <div class="experiment-grid">
+
+                
+<article class="experiment-card">
+    <span class="number">01</span>
+    <div class="card-icon">◈</div>
+    <h3>Image Enhancement</h3>
+    <p>Improve low-contrast images using contrast stretching and spatial smoothing.</p>
+    <a href="experiment1.html">Open Experiment ↗</a>
+</article>
+
+<article class="experiment-card">
+    <span class="number">02</span>
+    <div class="card-icon">▦</div>
+    <h3>Object Analysis</h3>
+    <p>Explore image preprocessing, segmentation and feature extraction.</p>
+    <a href="experiment2.html">Open Experiment ↗</a>
+</article>
+
+
+                <article class="experiment-card">
+                    <span class="number">03</span>
+                    <div class="card-icon">⌗</div>
+                    <h3>Shape Recognition</h3>
+                    <p>Study shape features, regional descriptors and image moments.</p>
+                    <a href="experiment3.html">Open Experiment ↗</a>
+                </article>
+
+                <article class="experiment-card">
+                    <span class="number">04</span>
+                    <div class="card-icon">✳</div>
+                    <h3>Image Processing</h3>
+                    <p>Explore digital image processing techniques through practical applications.</p>
+                     <a href="experiment4.html">Open Experiment ↗</a>
+
+            </div>
+        </section>
+
+        <footer id="about">
+            <div class="logo">Image<span>IQ.</span></div>
+            <p>Digital Image Processing Laboratory · 2026</p>
+        </footer>
+    </main>
+
+</body>
+</html>

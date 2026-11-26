@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiment 02 | ImageIQ</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="logo">Image<span>IQ.</span></div>
+        <a href="index.html">← Back to Dashboard</a>
+    </header>
+
+    <main class="experiment-page">
+
+        <!-- Experiment Heading -->
+        <section class="experiment-header">
+            <p class="eyebrow">EXPERIMENT 02 · MORPHOLOGICAL PROCESSING</p>
+            <h1>White Top-Hat Transformation</h1>
+            <p>Detect small bright objects and defects against a nonuniform background.</p>
+        </section>
+
+        <!-- Image Upload -->
+        <section class="upload-section">
+            <h2>01. Select Your Grayscale Image</h2>
+
+            <label for="imageInput" class="upload-box">
+                <span>＋</span>
+                <h3>Upload an Image</h3>
+                <p>Choose a grayscale or colour image from your computer</p>
+            </label>
+
+            <input type="file" id="imageInput" accept="image/*" hidden>
+
+<div class="sample-gallery">
+    <h3>Or Try Sample Images</h3>
+
+    <div class="sample-images">
+        <div class="sample-card" onclick="selectTopHatSample('assets/top_hat/img01.jpg')">
+            <img src="assets/top_hat/img01.jpg" alt="Metal surface">
+            <p>Metal Surface</p>
+        </div>
+
+        <div class="sample-card" onclick="selectTopHatSample('assets/top_hat/img02.jpg')">
+            <img src="assets/top_hat/img02.jpg" alt="Bright particles">
+            <p>Bright Particles</p>
+        </div>
+
+        <div class="sample-card" onclick="selectTopHatSample('assets/top_hat/img03.jpg')">
+            <img src="assets/top_hat/img03.jpg" alt="Surface defects">
+            <p>Surface Defects</p>
+        </div>
+    </div>
+</div>
+
+        </section>
+
+        <!-- Original Image -->
+        <section class="preview-section">
+            <h2>02. Original Image</h2>
+
+            <div class="preview-box">
+                <img id="originalImage" alt="Original image preview">
+                <p id="previewMessage">Your selected image will appear here.</p>
+            </div>
+        </section>
+
+        <!-- Processing Controls -->
+        <section class="processing-section">
+
+            <div class="processing-heading">
+                <p class="eyebrow">03 · MORPHOLOGICAL OPERATIONS</p>
+                <h2>Transformation Controls</h2>
+                <p>Experiment with structuring element sizes, shapes and threshold values.</p>
+            </div>
+
+            <div class="control-grid">
+
+                <div class="control-card">
+                    <h3>01. Structuring Element Size</h3>
+                    <p>Choose the kernel size used for morphological opening.</p>
+
+                    <label for="kernelSize">Kernel size</label>
+                    <select id="kernelSize">
+                        <option value="3">3 × 3</option>
+                        <option value="5">5 × 5</option>
+                        <option value="7">7 × 7</option>
+                    </select>
+                </div>
+
+                <div class="control-card">
+                    <h3>02. Structuring Element Shape</h3>
+                    <p>Compare different shapes for detecting bright objects.</p>
+
+                    <label for="kernelShape">Kernel shape</label>
+                    <select id="kernelShape">
+                        <option value="rectangle">Rectangle</option>
+                        <option value="ellipse">Ellipse</option>
+                        <option value="cross">Cross</option>
+                    </select>
+                </div>
+
+                <div class="control-card">
+                    <h3>03. Threshold Value</h3>
+                    <p>Adjust the threshold to identify bright regions.</p>
+
+                    <label for="thresholdValue">Threshold</label>
+                    <input type="range" id="thresholdValue"
+                           min="0" max="255" value="30">
+
+                    <span id="thresholdDisplay">30</span>
+                </div>
+
+            </div>
+
+            <button onclick="processTopHat()">
+                Apply White Top-Hat Transformation ↗
+            </button>
+
+        </section>
+
+        <!-- Processing Results -->
+        <section class="result-section">
+
+            <p class="eyebrow">04 · PROCESSING OUTPUT</p>
+            <h2>Morphological Results</h2>
+
+            <div class="result-grid">
+
+                <div class="result-image-card">
+                    <h3>Morphological Opening</h3>
+                    <div class="preview-box">
+                        <img id="openedImage" alt="Morphological opening result">
+                        <p id="openedMessage">Opening result will appear here.</p>
+                    </div>
+                </div>
+
+                <div class="result-image-card">
+                    <h3>White Top-Hat Image</h3>
+                    <div class="preview-box">
+                        <img id="topHatImage" alt="White top-hat result">
+                        <p id="topHatMessage">Top-hat result will appear here.</p>
+                    </div>
+                </div>
+
+                <div class="result-image-card">
+                    <h3>Thresholded Output</h3>
+                    <div class="preview-box">
+                        <img id="binaryImage" alt="Binary threshold result">
+                        <p id="binaryMessage">Binary output will appear here.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Quantitative Results -->
+            <h2 class="metrics-title">Detection Statistics</h2>
+
+            <div class="metrics-grid">
+
+                <div class="metric-card">
+                    <h3>Object Count</h3>
+                    <p id="objectCount">--</p>
+                    <span>Detected bright objects</span>
+                </div>
+
+                <div class="metric-card">
+                    <h3>Foreground Pixels</h3>
+                    <p id="foregroundPixels">--</p>
+                    <span>White pixels in binary output</span>
+                </div>
+
+                <div class="metric-card">
+                    <h3>Connectivity</h3>
+                    <p id="connectivity">--</p>
+                    <span>Connected component analysis</span>
+                </div>
+
+            </div>
+
+            <!-- Analysis -->
+            <div class="analysis-card">
+                <h2>Processing Analysis</h2>
+                <p id="analysisText">
+                    Apply the transformation to see the analysis.
+                </p>
+            </div>
+
+            <button class="reset-button" onclick="resetTopHat()">
+                ↻ Reset Experiment
+            </button>
+
+        </section>
+
+    </main>
+
+    <script src="js/experiment2.js"></script>
+
+</body>
+</html>
