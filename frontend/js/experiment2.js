@@ -55,7 +55,7 @@ async function processTopHat() {
     button.textContent = "Processing...";
 
     try {
-        const response = await fetch("http://127.0.0.1:5000/process-tophat", {
+        const response = await fetch("https://imageiq-1.onrender.com/process-tophat", {
             method: "POST",
             body: formData
         });

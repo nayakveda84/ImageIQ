@@ -114,12 +114,13 @@ async function processImage(operation) {
     resultMessage.style.display = "block";
     resultMessage.textContent = "Processing image...";
 
-    try {
-        const response = await fetch("http://127.0.0.1:5000/process", {
-            method: "POST",
-            body: formData
-        });
+   try {
+    const response = await fetch("https://imageiq-1.onrender.com/process", {
+        method: "POST",
+        body: formData
+    });
 
+       
         const data = await response.json();
 
         if (!response.ok) {

@@ -107,7 +107,7 @@ async function processWatershed() {
 
     try {
         const response = await fetch(
-            "http://127.0.0.1:5000/process-watershed",
+            "https://imageiq-1.onrender.com/process-watershed",
             {
                 method: "POST",
                 body: formData
